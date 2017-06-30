@@ -71,8 +71,8 @@
 
 
     <script type="text/javascript">
-      var name;
-      // data = {"contact":{"display_name":"Leigh Abramson"}} //for testing in browser
+      // var remember;
+      data = {"contact":{"display_name":"Leigh Abramson"}} //for testing in browser
 
       // Client ID and API key from the Developer Console
       // var CLIENT_ID = '590936402413-hr4uj4vasgeirpc507ehr3s4k3nchh9b.apps.googleusercontent.com';
@@ -304,7 +304,8 @@
           if ($('#loaded').val()==undefined || $('#checkMe').val()==undefined) {
             clearInterval(refreshIntervalId);
           };
-          frontOn(name);
+
+          frontOn(data.contact.display_name);
 
         }, 6000);
 
@@ -401,6 +402,7 @@
       Front.on('conversation', function (data) {
         $('#output').html('');
         name = data.contact.display_name
+        // remember = name
         if (name.split(', ')[1]!=undefined) {
           name = name.split(', ')[1] + " " + name.split(', ')[0]
         };
