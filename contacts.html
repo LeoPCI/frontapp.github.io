@@ -302,11 +302,16 @@
 
         var refreshIntervalId = setInterval(function(){ 
           if ($('#loaded').val()==undefined || $('#checkMe').val()==undefined) {
+            console.log("hi")
             clearInterval(refreshIntervalId);
-          };
-
-          frontOn(data.contact.display_name);
-
+          }
+          // if ($('#loaded').val()!=undefined && $('#checkMe').val()!=undefined) {
+          // else {
+            console.log("ho")
+            console.log($('#checkMe').val())
+            console.log($('#loaded').val())
+            frontOn(data.contact.display_name);            
+          // };
         }, 6000);
 
         gapi.client.sheets.spreadsheets.values.get({
